@@ -27,6 +27,7 @@ class Sel_res_form(models.Model):
     def __str__(self):
         return self.odth
 
+
 class Responde(models.Model):
     cod_form = models.IntegerField()
     dth = models.DateField()
