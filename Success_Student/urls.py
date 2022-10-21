@@ -21,7 +21,7 @@ from rest_framework.routers import DefaultRouter
 from core.views import RespostaViewSet, PerguntaViewSet, FormularioViewSet, ConteudoViewSet, MidiaViewSet
 
 router = DefaultRouter()
-router.register(r"respostas", RespostaViewSet)
+router.register(r"resposta", RespostaViewSet)
 router.register(r"pergunta", PerguntaViewSet)
 router.register(r"formulario", FormularioViewSet)
 router.register(r"conteudo", ConteudoViewSet)
