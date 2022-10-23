@@ -1,0 +1,1 @@
+web: gunicorn Success_Student.wsgi
