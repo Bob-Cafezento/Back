@@ -40,10 +40,17 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework_simplejwt",
+    "drf_spectacular",
     "rest_framework",
     "media",
     "core",
 ]
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Success Student API",
+    "DESCRIPTION": "API para gerenciamento do site, incluindo endpoints e documentação.",
+    "VERSION": "1.0.0",
+}
 
 MEDIA_URL = "http://localhost:8000/media/"
 MEDIA_ENDPOINT = "/media/"
@@ -71,6 +78,7 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 ROOT_URLCONF = "Success_Student.urls"
