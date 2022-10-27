@@ -38,6 +38,7 @@ from core.views import (
     FormularioViewSet,
     ConteudoViewSet,
     MidiaViewSet,
+    UsuarioViewSet
 )
 
 router = DefaultRouter()
@@ -46,6 +47,7 @@ router.register(r"pergunta", PerguntaViewSet)
 router.register(r"formulario", FormularioViewSet)
 router.register(r"conteudo", ConteudoViewSet)
 router.register(r"midia", MidiaViewSet)
+router.register(r"usuario", UsuarioViewSet)
 
 urlpatterns = [
     path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),

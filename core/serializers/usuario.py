@@ -6,4 +6,4 @@ from core.models import Usuario
 class UsuarioSerializer(ModelSerializer):
     class Meta:
         model = Usuario
-        fields = "__all__"
+        fields = ('id', 'first_name', 'last_name', 'password', 'email', 'username')
