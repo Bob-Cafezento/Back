@@ -6,3 +6,4 @@ class ConteudoSerializer(ModelSerializer):
     class Meta:
         model = Conteudo
         fields = "__all__"
+        
