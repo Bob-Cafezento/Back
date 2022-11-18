@@ -3,4 +3,3 @@ from .formulario import FormularioSerializer
 from .midia import MidiaSerializer
 from .pergunta import PerguntaSerializer
 from .resposta import RespostaSerializer
-from .usuario import UsuarioSerializer

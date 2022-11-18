@@ -38,7 +38,6 @@ from core.views import (
     FormularioViewSet,
     ConteudoViewSet,
     MidiaViewSet,
-    UsuarioViewSet
 )
 
 router = DefaultRouter()
@@ -47,14 +46,15 @@ router.register(r"pergunta", PerguntaViewSet)
 router.register(r"formulario", FormularioViewSet)
 router.register(r"conteudo", ConteudoViewSet)
 router.register(r"midia", MidiaViewSet)
-router.register(r"usuario", UsuarioViewSet)
 
 urlpatterns = [
-    path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
-    path("api/media/", include(media_router.urls)),
     path("admin/", admin.site.urls),
-    path("", include(router.urls)),
+    # Auth
+    path("auth/", include("dj_rest_auth.urls")),
+    path("auth/registration/", include("dj_rest_auth.registration.urls")),
+    # Api
+    path("api/media/", include(media_router.urls)),
+    path("api/", include(router.urls)),
     # OpenAPI 3
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
