@@ -56,6 +56,8 @@ JWT_AUTH_REFRESH_COOKIE = "refresh"
 
 SITE_ID = 1
 
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 SPECTACULAR_SETTINGS = {
     "TITLE": "Success Student API",
     "DESCRIPTION": "API para gerenciamento do site, incluindo endpoints e documentação.",
