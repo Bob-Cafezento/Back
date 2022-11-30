@@ -1,7 +1,9 @@
 from unittest.util import _MAX_LENGTH
+
 from django.db import models
 
-from core.models import Pergunta
+from .pergunta import Pergunta
+
 
 class Formulario(models.Model):
     titulo = models.CharField(max_length=50)

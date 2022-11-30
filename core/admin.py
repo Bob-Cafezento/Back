@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from core.models import Resposta, Pergunta, Formulario, Conteudo, Midia
+from core.models import Conteudo, Formulario, Midia, Pergunta, Resposta
 
 admin.site.register(Resposta)
 admin.site.register(Pergunta)

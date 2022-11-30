@@ -1,7 +1,7 @@
-from unittest.util import _MAX_LENGTH
 from django.db import models
 
-from core.models import Midia
+from .midia import Midia
+
 
 class Conteudo(models.Model):
     topico = models.CharField(max_length=45)

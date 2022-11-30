@@ -17,8 +17,12 @@ drf-spectacular = "^0.24.2"
 django-cors-headers = "^3.13.0"
 django-allauth = "^0.51.0"
 dj-rest-auth = "^2.2.5"
+django-environ = "^0.9.0"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.10.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
