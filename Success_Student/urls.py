@@ -18,7 +18,6 @@ from core.views import (
     PerguntaViewSet,
     FormularioViewSet,
 )
-from media.router import router as media_router
 
 router = DefaultRouter()
 router.register(r"disciplinas", DisciplinaViewSet)
@@ -34,7 +33,6 @@ urlpatterns = [
     path("auth/registration/", include("dj_rest_auth.registration.urls")),
     # Api
     path("api/", include(router.urls)),
-    path("api/media/", include(media_router.urls)),
     # OpenAPI 3
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
@@ -49,5 +47,3 @@ urlpatterns = [
     ),
     path("api/", include(router.urls)),
 ]
-
-urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)
