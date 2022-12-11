@@ -1,8 +1,7 @@
 from django.contrib import admin
 
-from core.models import Disciplina, Conteudo, Alternativa, Pergunta, Formulario
+from core.models import Alternativa, Conteudo, Formulario, Pergunta
 
-admin.site.register(Disciplina)
 admin.site.register(Conteudo)
 admin.site.register(Alternativa)
 admin.site.register(Pergunta)

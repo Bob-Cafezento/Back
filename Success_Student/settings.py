@@ -1,6 +1,8 @@
 import os
-import environ
+from datetime import timedelta
 from pathlib import Path
+
+import environ
 
 # Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -58,6 +60,11 @@ SPECTACULAR_SETTINGS = {
     "TITLE": "Success Student API",
     "DESCRIPTION": "API para gerenciamento do site, incluindo endpoints e documentação.",
     "VERSION": "1.0.0",
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
 }
 
 MIDDLEWARE = [
@@ -145,4 +152,5 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 CORS_ALLOW_ALL_ORIGINS = True

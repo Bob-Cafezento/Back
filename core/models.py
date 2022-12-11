@@ -1,31 +1,32 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
-class Disciplina(models.Model):
-    nome = models.CharField(max_length=150)
-
-    def __str__(self):
-        return self.nome
-
-
 class Conteudo(models.Model):
+    class Disciplinas(models.TextChoices):
+        PORTUGUES = "Português"
+        MATEMATICA = "Matemática"
+        GEOGRAFIA = "Geografia"
+        HISTORIA = "História"
+
     nome = models.CharField(max_length=150)
-    disciplina = models.ForeignKey(
-        Disciplina, on_delete=models.PROTECT, related_name="conteudos"
+    paragrafo = models.TextField(null=True, blank=True)
+    criado_por = models.ForeignKey(
+        User, on_delete=models.PROTECT, related_name="conteudos"
     )
+    disciplina = models.CharField(max_length=10, choices=Disciplinas.choices)
 
     def __str__(self):
         return self.nome
 
 
 class Alternativa(models.Model):
-    texto_alternativas = models.CharField(max_length=150)
+    texto_alternativa = models.CharField(max_length=255)
     esta_correta = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.texto_alternativas
+        return self.texto_alternativa
 
 
 class Pergunta(models.Model):

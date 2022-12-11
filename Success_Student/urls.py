@@ -12,16 +12,14 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from core.views import (
-    DisciplinaViewSet,
-    ConteudoViewSet,
     AlternativaViewSet,
-    PerguntaViewSet,
+    ConteudoViewSet,
     FormularioViewSet,
+    PerguntaViewSet,
 )
 
 router = DefaultRouter()
-router.register(r"disciplinas", DisciplinaViewSet)
-router.register(r"counteudos", ConteudoViewSet)
+router.register(r"conteudos", ConteudoViewSet)
 router.register(r"alternativas", AlternativaViewSet)
 router.register(r"perguntas", PerguntaViewSet)
 router.register(r"formularios", FormularioViewSet)

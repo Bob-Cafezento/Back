@@ -1,24 +1,24 @@
 from rest_framework.viewsets import ModelViewSet
 
-from core.models import Disciplina, Conteudo, Alternativa, Pergunta, Formulario
+from core.models import Alternativa, Conteudo, Formulario, Pergunta
 from core.serializers import (
-    DisciplinaSerializer,
-    ConteudoSerializer,
     AlternativaSerializer,
-    PerguntaSerializer,
-    FormularioSerializer,
+    ConteudoSerializer,
     FormularioDetailSerializer,
+    FormularioSerializer,
+    PerguntaDetailSerializer,
+    PerguntaSerializer,
 )
-
-
-class DisciplinaViewSet(ModelViewSet):
-    queryset = Disciplina.objects.all()
-    serializer_class = DisciplinaSerializer
 
 
 class ConteudoViewSet(ModelViewSet):
     queryset = Conteudo.objects.all()
     serializer_class = ConteudoSerializer
+
+    def get_queryset(self):
+        disciplina = self.request.query_params.get("disciplina")
+
+        return Conteudo.objects.filter(disciplina=disciplina)
 
 
 class AlternativaViewSet(ModelViewSet):
@@ -28,11 +28,20 @@ class AlternativaViewSet(ModelViewSet):
 
 class PerguntaViewSet(ModelViewSet):
     queryset = Pergunta.objects.all()
-    serializer_class = PerguntaSerializer
+
+    def get_serializer_class(self):
+        if self.action in ["list", "retrieve"]:
+            return PerguntaDetailSerializer
+        return PerguntaSerializer
 
 
 class FormularioViewSet(ModelViewSet):
     queryset = Formulario.objects.all()
+
+    def get_queryset(self):
+        id_conteudo = self.request.query_params.get("conteudo")
+
+        return Formulario.objects.filter(conteudo=id_conteudo)
 
     def get_serializer_class(self):
         if self.action in ["list", "retrieve"]:
