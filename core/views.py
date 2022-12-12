@@ -41,7 +41,9 @@ class FormularioViewSet(ModelViewSet):
     def get_queryset(self):
         id_conteudo = self.request.query_params.get("conteudo")
 
-        return Formulario.objects.filter(conteudo=id_conteudo)
+        if id_conteudo != None:
+            return Formulario.objects.filter(conteudo=id_conteudo)
+        return Formulario.objects.all()
 
     def get_serializer_class(self):
         if self.action in ["list", "retrieve"]:
